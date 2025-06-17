@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thanh toán</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/72462fd80f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../home/style.css">
+<link rel="stylesheet" href="../home/js.js">
+<script src="../home/js.js"></script>
+<script src="../home/thanhtoan.js"></script>
+<style>
+  body{
+    font-size: 22px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="promo-banner">
+    <i class="fa-solid fa-truck-fast"></i>
+    Ngày hội SUMMER 2025 - Săn deal ngay! 
+  </div>
+  
+  <div class="top-nav container">
+    <div class="logo-ntc" tabindex="0"><a href="../index.html"><img src="../home/img/NTC-removebg-preview.png" alt=""></a></div>
+
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Bạn cần tìm gì?" aria-label="Tìm kiếm">
+</div>
+
+    <nav class="main-menu" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html" tabindex="0">Trang chủ</a></li>
+        <li><a href="../sanpham/product.html" tabindex="0">Sản phẩm</a></li>
+        <li><a href="../tintuc/news.html" tabindex="0">Tin tức</a></li>
+        <li><a href="../lienhe/contact.html" tabindex="0">Liên hệ</a></li>
+        <li class="right-icon hide-on-small"><a href="../thanhtoan/thanhtoan.html" tabindex="0"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li class="right-icon hide-on-small"><a href="../login/dangnhap.html" tabindex="0"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<body class="bg-gray-50 text-gray-800" style="background-color: #d1d0d4;;">
+  <div class="max-w-6xl mx-auto py-10 px-6">
+    <h1 class="text-3xl font-bold mb-6 text-center" style="color: blue; font-size: 60px;">ĐƠN HÀNG CỦA BẠN</h1> <br>
+    
+    <div class="bg-white p-6 rounded-xl shadow mb-8">
+      <h2 class="text-xl font-semibold mb-4">🧾 Thông tin đơn hàng</h2>
+      <div id="cart-items" class="space-y-4"> <hr>
+
+        <div class="flex items-center justify-between border-b pb-4" data-price="39490000">
+          <div class="flex items-center space-x-4">
+            <img src="../home/img/samsung-Z-Flod.webp" style="width: 200px;" class="rounded-lg" alt="Sản phẩm">
+            <div>
+              <p class="font-medium">Samsung Galaxy Z Fold6 512GB</p>
+              <div class="flex items-center mt-1">
+                <button class="px-2 bg-gray-200 rounded" onclick="changeQuantity(this, -1)"></button>
+                <input class="mx-2 w-12 text-center border rounded" type="number" value="1" min="1" onchange="updateTotal()">
+                <button class="px-2 bg-gray-200 rounded" onclick="changeQuantity(this, 1)"></button>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <p class="font-semibold text-blue-600 item-price">39.490.000đ</p>
+            <button class="text-red-500 text-sm hover:underline" onclick="removeItem(this)">Xóa</button>
+          </div>
+       </div>
+      </div>
+
+      <div class="mt-6">
+        <div class="flex justify-between">
+          <span>Tạm tính</span>
+          <span>39.490.000đ</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Phí vận chuyển</span>
+          <span>20.000đ</span>
+        </div>
+        <div class="flex justify-between">
+          <span>🎁 Mã giảm giá (nếu có):</span>
+          <span>-0đ</span>
+        </div>
+        <div class="flex justify-between font-bold text-lg mt-2">
+          <span>Tổng thanh toán</span>
+          <span>39.510.000đ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow mb-8">
+      <h2 class="text-xl font-semibold mb-4">👤 Thông tin khách hàng</h2> <hr><br>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input id="fullname" class="border p-2 rounded" type="text" placeholder="Họ tên *" required>
+        <input id="phone" class="border p-2 rounded" type="tel" placeholder="Số điện thoại *" required>
+        <input id="email" class="border p-2 rounded" type="email" placeholder="Email">
+        <input id="address" class="border p-2 rounded col-span-1 md:col-span-2" type="text" placeholder="Địa chỉ *" required>
+        <textarea class="border p-2 rounded col-span-1 md:col-span-2" placeholder="Ghi chú thêm..."></textarea>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow mb-8">
+      <h2 class="text-xl font-semibold mb-4">💳 Phương thức thanh toán</h2>
+      <div class="space-y-3"> <hr>
+        <label><input type="radio" name="pttt" class="mr-2" value="cod">Thanh toán khi nhận hàng (COD)</label><br>
+        <label><input type="radio" name="pttt" class="mr-2" value="bank">Chuyển khoản ngân hàng (Vietcombank, BIDV...)</label><br>
+        <label><input type="radio" name="pttt" class="mr-2" value="momo">Ví điện tử (Momo, ZaloPay...)</label><br>
+        <label><input type="radio" name="pttt" class="mr-2" value="card">Thẻ ATM/Thẻ tín dụng</label>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pl-6 pt-2">
+        <div>
+          <input id="cardNumber" class="border p-2 rounded w-full" type="text" placeholder="Số thẻ">
+          <p id="cardNumberError" class="text-red-500 text-sm mt-1 hidden">Số thẻ phải gồm 12 chữ số.</p>
+        </div>
+        <div>
+          <input id="cardExpiry" class="border p-2 rounded w-full" type="text" placeholder="Hạn thẻ">
+          <p id="cardExpiryError" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập hạn thẻ.</p>
+        </div>
+        <div>
+          <input id="cardCVV" class="border p-2 rounded w-full" type="text" placeholder="Mã CVV">
+          <p id="cardCVVError" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập mã CVV.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow mb-8">
+      <h2 class="text-xl font-semibold mb-4">🚚 Phương thức giao hàng</h2>
+      <div class="space-y-2"> <hr> <br>
+        <label><input type="radio" name="ptgh" class="mr-2" >Giao hàng tiêu chuẩn (7-10 ngày)</label><br>
+        <label><input type="radio" name="ptgh" class="mr-2">Giao hàng nhanh (24h - nội thành)</label><br>
+        <label><input type="radio" name="ptgh" class="mr-2">Nhận tại cửa hàng</label>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="bg-blue-600 text-white px-8 py-3 rounded-full shadow hover:bg-blue-700 transition" onclick="placeOrder()">🛒 ĐẶT HÀNG NGAY</button>
+      <p class="text-sm mt-4">Bằng cách đặt hàng, bạn đồng ý với <a href="#" class="text-blue-500 underline">chính sách bảo mật</a> của chúng tôi.</p> 
+    </div>
+  </div>
+</body>
+</html>

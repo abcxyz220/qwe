@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký</title>
+  <link rel="stylesheet" href="../home/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="login-boxs">
+    <h2>Tạo Tài Khoản</h2>
+    <form onsubmit="return handleRegister(event)">
+      <input type="text" id="fullname" placeholder="Họ và tên" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="username" placeholder="Tên đăng nhập" required>
+      <input type="password" id="password" placeholder="Mật khẩu" required>
+      <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+      <button type="submit">Đăng ký</button>
+    </form>
+
+    <div class="register-texts">
+      Đã có tài khoản? <a href="dangnhap.html">Đăng nhập</a>
+    </div>
+
+    <div class="social-logins">
+      <p>Hoặc đăng ký bằng</p>
+      <div class="social-icons">
+        <a href="#" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn gg"><i class="fab fa-google"></i></a>
+        <a href="#" class="social-btn li"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <script src="../home/login.js"></script>
+</body>
+</html>

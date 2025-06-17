@@ -1,0 +1,193 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  .contact-info, .contact-form {
+    margin-bottom: 2rem;
+  }
+
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+
+  .contact-form button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 30px; 
+  }
+
+  .contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .contact-image {
+    flex: 2;
+    min-width: 300px;
+    text-align: center;
+  }
+
+  .contact-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+/* === BỐ CỤC TRANG LIÊN HỆ === */
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 40px 20px;
+  max-width: 1200px; /* Tăng chiều rộng tối đa một chút */
+  margin: 40px auto;
+  background-color: #fdf5f5; /* Màu nền hồng nhạt giống trang của bạn */
+  border-radius: 15px; /* Bo tròn góc cho container chính */
+}
+
+/* === KHỐI FORM LIÊN HỆ BÊN TRÁI === */
+
+.contact-form {
+  flex: 1; /* Chiếm 1 phần không gian */
+  max-width: 550px;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-left-tittle h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  box-sizing: border-box; /* Quan trọng để padding không làm tăng width */
+  transition: border-color 0.3s;
+}
+
+.contact-input:focus {
+  border-color: #007bff; /* Thay đổi màu viền khi focus */
+}
+
+textarea.contact-input {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: flex-start; /* Nút chỉ rộng bằng nội dung */
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+
+/* === KHỐI BẢN ĐỒ BÊN PHẢI === */
+
+.contact-map {
+  flex: 1; /* Chiếm 1 phần không gian */
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-map h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contact-map p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Wrapper để tạo iframe hình vuông và responsive */
+.map-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Tạo tỷ lệ 1:1 (vuông) */
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === CSS CHO MÀN HÌNH NHỎ (ĐIỆN THOẠI) === */
+@media (max-width: 992px) {
+  .contact-container {
+    flex-direction: column; /* Xếp chồng form và bản đồ lên nhau */
+    align-items: center; /* Căn giữa các item */
+    gap: 40px;
+  }
+  .contact-form, .contact-map {
+    width: 100%;
+    max-width: 550px; /* Giới hạn chiều rộng trên mobile */
+  }
+}
